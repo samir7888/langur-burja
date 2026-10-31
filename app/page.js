@@ -512,25 +512,35 @@ export default function Page() {
     [room, setRoom] = useState(null),
     [ready, setReady] = useState(false),
     [pre, setPre] = useState("");
+
   const leave = () => {
-    localStorage.removeItem("lb");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("lb");
+    }
     setMe(null);
     setRoom(null);
   };
+
   useEffect(() => {
+    // Initialize everything on client-side only
+    if (typeof window === "undefined") return;
+
     try {
       const s = JSON.parse(localStorage.getItem("lb") || "null");
       if (s) setMe(s);
     } catch {}
-    setPre(
-      (new URLSearchParams(location.search).get("code") || "").toUpperCase()
-    );
+
+    const urlParams = new URLSearchParams(window.location.search);
+    setPre((urlParams.get("code") || "").toUpperCase());
     setReady(true);
+
     document.addEventListener("pointerdown", unlock);
-    return () => document.removeEventListener("pointerdown", unlock); // browsers need a tap before audio
+    return () => document.removeEventListener("pointerdown", unlock);
   }, []);
+
   useEffect(() => {
-    if (!me) return;
+    if (!me || typeof window === "undefined") return;
+
     localStorage.setItem("lb", JSON.stringify(me));
     const es = new EventSource("/api/room/events?code=" + me.code);
     es.onmessage = (e) => setRoom(JSON.parse(e.data));
@@ -539,6 +549,7 @@ export default function Page() {
     };
     return () => es.close();
   }, [me]);
+
   if (!ready) return null;
   if (!me)
     return (
