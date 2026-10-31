@@ -62,3 +62,85 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .up{color:#8ff0a4}.dn{color:#ffb4ae}.hist{display:flex;gap:6px;flex-wrap:wrap;opacity:.9;align-items:center}
 @media (prefers-reduced-motion:reduce){.cup.shake,.tile.win{animation:none}}
 @media (max-width:480px){.dw{--s:48px;--h:24px}.tile .nm{font-size:16px}}
+
+/* ================= Nepal theme · landing · mobile-first ================= */
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:#0a1d4d;min-height:100dvh;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+.wrap{padding:max(18px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(60px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+input,button{touch-action:manipulation}
+input{font-size:16px} /* stops iOS zoom-on-focus */
+button{min-height:48px;transition:transform .15s,filter .15s,box-shadow .2s}
+button:not(:disabled):active{transform:scale(.96)}
+
+/* background */
+.nepal-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#0b1d4d}
+.nepal-bg svg{position:absolute;inset:0;width:100%;height:100%}
+.nepal-bg.dim::after{content:"";position:absolute;inset:0;background:linear-gradient(#0a2b29d9,#0a2b29f2)}
+.nepal-bg:not(.dim)::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 38%,#0b1d4daa,transparent 75%)}
+.tw{animation:tw 3s ease-in-out infinite}@keyframes tw{50%{opacity:.2}}
+.sun{transform-origin:600px 520px;animation:pulse 6s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.07);opacity:.85}}
+.cloud{animation:drift 40s linear infinite alternate}.cloud.c2{animation-duration:55s}@keyframes drift{to{transform:translateX(140px)}}
+.flags{transform-origin:50% 0;animation:sway 5s ease-in-out infinite alternate}@keyframes sway{to{transform:skewY(2.5deg) translateY(6px)}}
+.floaters span{position:absolute;bottom:-60px;color:#f7f0dc;opacity:0;animation:floatUp 16s linear infinite}
+@keyframes floatUp{10%{opacity:.16}90%{opacity:.12}100%{transform:translateY(-115vh) rotate(200deg);opacity:0}}
+
+/* garland along the top edge */
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:26px;z-index:20;pointer-events:none;
+ background:radial-gradient(circle at 50% 38%,#ffd24a 0 4px,#ff9f1c 5px 9px,#e8590c 10px 12px,transparent 13px) 0 0/26px 26px repeat-x;filter:drop-shadow(0 3px 3px #0006)}
+
+/* hero */
+.landing{min-height:calc(100dvh - 40px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:34px 0 20px;max-width:440px;margin:0 auto}
+.eyebrow{margin:0;font-weight:800;letter-spacing:.04em;color:#ffd98a;font-size:14px;animation:rise .7s both}
+.title{font-family:'Yatra One',serif;font-weight:400;font-size:clamp(46px,15vw,92px);line-height:1;margin:0;
+ background:linear-gradient(100deg,#ffe28a 20%,#fff8d6 40%,#f5a623 60%,#ffe28a 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 4px 0 #7a1616) drop-shadow(0 8px 14px #000a);animation:pop .9s cubic-bezier(.3,1.5,.5,1) both,shine 5s linear 1s infinite}
+@keyframes pop{from{transform:scale(.6) translateY(20px);opacity:0}}@keyframes shine{to{background-position:-250% 0}}
+.nep{font-family:'Yatra One';font-size:clamp(24px,7vw,38px);color:#fff;text-shadow:0 2px 12px #c92a2a,0 0 2px #000;animation:rise .8s .2s both}
+.tag{margin:0;font-weight:700;font-size:16px;line-height:1.45;opacity:.95;max-width:34ch;text-shadow:0 1px 8px #000b;animation:rise .8s .3s both}
+@keyframes rise{from{transform:translateY(16px);opacity:0}}
+.syms{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;animation:rise .8s .4s both}
+.symtile{width:46px;height:46px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(145deg,#fffdf4,#eadfc2);border:2px solid #f5a623;box-shadow:0 4px 0 #7a1616,0 8px 14px #0008;animation:bob 2.2s ease-in-out calc(var(--i)*.18s) infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-4deg)}}
+.card.join{width:100%;display:grid;gap:12px;text-align:center;background:#0a1d4dbb;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:2px solid #f5a62399;border-radius:20px;padding:18px;box-shadow:0 12px 40px #000a;animation:rise .8s .5s both}
+.join input{text-align:center;font-weight:700;min-height:50px}
+.codein{letter-spacing:.3em;text-transform:uppercase;font-family:'Yatra One';font-size:20px}
+.join .row{gap:10px}.join .row input{flex:1;min-width:0}.join .row button{min-width:92px}
+.host{background:linear-gradient(180deg,#ffc44d,#f5a623);box-shadow:0 5px 0 #a8650a,0 0 0 0 #f5a62366;font-size:18px;animation:glow2 2.2s ease-in-out infinite}
+.host:disabled{animation:none}
+@keyframes glow2{50%{box-shadow:0 5px 0 #a8650a,0 0 0 10px #f5a62300}}
+.or{font-size:13px;font-weight:800;opacity:.7;letter-spacing:.08em;text-transform:uppercase;min-height:0}.or:empty{display:none}
+.invite{margin:0;padding:10px;border-radius:12px;background:#f5a62326;font-weight:700}
+.perks{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;animation:rise .8s .6s both}
+.perks li{padding:7px 12px;border-radius:99px;background:#0a1d4d99;border:1px solid #ffffff33;font-weight:800;font-size:13px}
+.diyas{display:flex;gap:18px;margin-top:8px}
+.diyas i{width:30px;height:14px;border-radius:0 0 30px 30px;background:linear-gradient(#e0762b,#9a3a14);position:relative;display:block}
+.diyas i::before{content:"";position:absolute;left:50%;bottom:12px;width:9px;height:18px;margin-left:-4.5px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(#fff6c2,#ffb000 60%,#ff6a00);box-shadow:0 0 16px 6px #ffb00088;transform-origin:50% 100%;animation:flick .9s ease-in-out infinite alternate;animation-delay:inherit}
+@keyframes flick{0%{transform:scale(1,.9) rotate(-3deg)}100%{transform:scale(.9,1.15) rotate(3deg)}}
+
+/* SEO / info sections */
+.info{max-width:760px;margin:30px auto 0;display:grid;gap:18px}
+.info section{background:#0a1d4dc4;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid #f5a62344;border-radius:18px;padding:20px 18px;line-height:1.6}
+.info h2{font-family:'Yatra One';font-weight:400;font-size:clamp(22px,5.5vw,30px);color:#ffd98a;margin:0 0 10px}
+.info h3{font-size:17px;margin:6px 0 2px}.info p{margin:0 0 10px;opacity:.95}
+.steps{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:12px;border-radius:14px;background:#ffffff12}
+.steps .n{grid-row:span 2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:'Yatra One';font-size:22px;background:#c92a2a;border:2px solid #f5a623}
+.steps h3{margin:0}.steps p{margin:0;font-size:15px}
+.symgrid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.symgrid li{display:grid;padding:12px;border-radius:12px;background:#ffffff12;text-align:center}
+.symgrid b{font-family:'Yatra One';font-weight:400;font-size:24px;color:#fff}.symgrid span{font-size:13px;opacity:.8}
+details{border-top:1px solid #ffffff22;padding:4px 0}details summary{cursor:pointer;font-weight:800;padding:12px 0;min-height:44px}details p{font-size:15px}
+.info footer{text-align:center;font-size:13px;opacity:.75;padding:6px 10px 0}
+
+@media (min-width:640px){
+ .landing{max-width:520px;gap:18px}.symtile{width:56px;height:56px}.symgrid{grid-template-columns:repeat(3,1fr)}
+ .steps{grid-template-columns:repeat(3,1fr)}.steps li{grid-template-columns:1fr;text-align:center;justify-items:center;row-gap:6px}.steps .n{grid-row:auto}
+}
+/* game screen on phones */
+@media (max-width:520px){
+ .top{flex-direction:column;align-items:stretch}.top .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.top .row button{padding:10px 6px;font-size:13px}
+ .code{font-size:34px}.tile{padding:12px 2px 10px}.stake{min-width:32px;height:32px;font-size:12px}
+ .chips{display:flex;flex-wrap:wrap;justify-content:center}.chips button{width:52px;height:52px}
+}
+@media (max-height:640px){.landing{justify-content:flex-start}.syms{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

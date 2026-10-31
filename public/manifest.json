@@ -1,12 +1,12 @@
 {
   "name": "Langur Burja Online - Traditional Nepali Dice Game",
   "short_name": "Langur Burja",
-  "description": "Play Langur Burja (लङ्गुर बुर्जा) online with friends. Traditional Nepali dice game.",
+  "description": "Play Langur Burja (लङ्गुर बुर्जा) online with friends. Host a room, share the code and roll the dice together.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0e3b38",
+  "background_color": "#0b1d4d",
   "theme_color": "#c92a2a",
-  "orientation": "portrait",
+  "orientation": "any",
   "icons": [
     {
       "src": "/icon-192.png",

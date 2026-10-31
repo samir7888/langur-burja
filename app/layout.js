@@ -1,7 +1,12 @@
 import "./globals.css";
+import { FAQ } from "./landing";
 
 export const viewport = {
-  themeColor: "#c92a2a",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0b1d4d",
+  colorScheme: "dark",
 };
 
 export const metadata = {
@@ -25,12 +30,15 @@ export const metadata = {
     "msapplication-TileImage": "/mstile-150x150.png",
     "msapplication-config": "/browserconfig.xml",
   },
-  title:
-    "Langur Burja Online - लङ्गुर बुर्जा खेल्नुहोस् | Play Free Nepali Dice Game",
+  title: {
+    default:
+      "Langur Burja Online – Play with Friends | लङ्गुर बुर्जा खेल्नुहोस्",
+    template: "%s | Langur Burja",
+  },
   description:
-    "Play Langur Burja (लङ्गुर बुर्जा) online for free. Traditional Nepali dice game with friends. झण्डा, बुर्जा, पान, हुकुम, इँटा, चिडी. Popular in Nepal, India, Bangladesh. Play now!",
+    "Play Langur Burja (लङ्गुर बुर्जा) online with friends. Host a room, share the code on WhatsApp or Viber and roll the dice together in real time. Free Nepali Dashain & Tihar dice game, made for mobile.",
   keywords:
-    "langur burja, लङ्गुर बुर्जा, nepali game, nepali dice game, jhanda burja, crown and anchor, langur game online, langur burja online, traditional nepali game, dashain game, tihar game, nepal card game, indian dice game, langur burja khelne, online nepali game, free nepali game, multiplayer nepali game, लङ्गुर बुर्जा अनलाइन, झण्डा बुर्जा",
+    "play langur burja with friends, langur burja online, multiplayer langur burja, langur burja room code, लङ्गुर बुर्जा, लङ्गुर बुर्जा अनलाइन, साथीहरूसँग लङ्गुर बुर्जा, jhanda burja, jhandi munda online, khor khore, nepali dice game with friends, dashain game online, tihar game online, crown and anchor online, free nepali game, nepali mobile game",
   authors: [{ name: "Langur Burja Game" }],
   creator: "Langur Burja",
   publisher: "Langur Burja",
@@ -46,9 +54,9 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Langur Burja Online - लङ्गुर बुर्जा | Free Nepali Dice Game",
+    title: "Langur Burja Online – Play with Friends | लङ्गुर बुर्जा",
     description:
-      "Play traditional Langur Burja (लङ्गुर बुर्जा) online with friends. Popular Nepali dice game with 6 symbols - झण्डा, बुर्जा, पान, हुकुम, इँटा, चिडी. Free multiplayer game!",
+      "Host a room, share the code and play traditional Nepali Langur Burja (लङ्गुर बुर्जा) with your friends online, in real time. Free, no signup, made for mobile.",
     url: "/",
     siteName: "Langur Burja Online",
     locale: "ne_NP",
@@ -66,7 +74,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Langur Burja Online - लङ्गुर बुर्जा",
     description:
-      "Play traditional Nepali dice game Langur Burja online with friends for free!",
+      "Host a room, invite friends and play Langur Burja online together. Free Nepali dice game!",
     images: ["/og-image.png"],
   },
   robots: {
@@ -90,8 +98,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ne">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Nunito:wght@500;700;800&display=swap"
@@ -111,70 +120,46 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Game",
-              name: "Langur Burja",
-              alternateName: "लङ्गुर बुर्जा",
-              description:
-                "Traditional Nepali dice game with six symbols - झण्डा (Flag), बुर्जा (Crown), पान (Heart), हुकुम (Spade), इँटा (Diamond), चिडी (Club)",
-              gameItem: "Dice",
-              numberOfPlayers: "2+",
-              url: "/",
-              inLanguage: ["ne", "en"],
-              gamePlatform: "Web Browser",
-              genre: ["Dice Game", "Traditional Game", "Gambling Game"],
-              author: {
-                "@type": "Organization",
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": ["Game", "WebApplication"],
                 name: "Langur Burja Online",
+                alternateName: ["लङ्गुर बुर्जा", "Jhanda Burja", "Jhandi Munda", "Khor Khore"],
+                description:
+                  "Play Langur Burja online with friends. Host a room, share the room code and roll six symbol dice together in real time. A traditional Nepali Dashain and Tihar dice game.",
+                url: "/",
+                inLanguage: ["ne", "en"],
+                gamePlatform: "Web Browser",
+                applicationCategory: "GameApplication",
+                operatingSystem: "Any (mobile and desktop browsers)",
+                playMode: "MultiPlayer",
+                numberOfPlayers: { "@type": "QuantitativeValue", minValue: 2 },
+                genre: ["Dice Game", "Traditional Game", "Multiplayer Game"],
+                isAccessibleForFree: true,
+                offers: { "@type": "Offer", price: "0", priceCurrency: "NPR" },
+                author: { "@type": "Organization", name: "Langur Burja Online" },
               },
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
+              {
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                name: "How to play Langur Burja online with friends",
+                step: [
+                  { "@type": "HowToStep", name: "Host a room", text: "Enter your name and tap Host a new room. You become the banker." },
+                  { "@type": "HowToStep", name: "Invite your friends", text: "Share the room code or invite link on WhatsApp, Viber or Messenger." },
+                  { "@type": "HowToStep", name: "Bet and roll together", text: "Everyone places bets on symbols from their own phone, then the host rolls the six dice." },
+                ],
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.8",
-                ratingCount: "1250",
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: FAQ.map(({ q, a }) => ({
+                  "@type": "Question",
+                  name: q,
+                  acceptedAnswer: { "@type": "Answer", text: a },
+                })),
               },
-            }),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "What is Langur Burja?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Langur Burja (लङ्गुर बुर्जा) is a traditional Nepali dice game played with 6 dice featuring unique symbols: झण्डा (Flag), बुर्जा (Crown), पान (Heart), हुकुम (Spade), इँटा (Diamond), and चिडी (Club). It's popular during Dashain and Tihar festivals.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "How do you play Langur Burja online?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "To play Langur Burja online, one player hosts a room and shares the room code with friends. Players join using the code, place bets on symbols, and the host rolls the dice. If your symbol appears on 2 or more dice, you win!",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Is Langur Burja free to play?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes! Our online Langur Burja game is completely free to play. No registration, no downloads, and no hidden costs. Just create a room and start playing with friends.",
-                  },
-                },
-              ],
-            }),
+            ]),
           }}
         />
       </head>
