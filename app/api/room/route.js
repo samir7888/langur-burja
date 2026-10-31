@@ -1,4 +1,4 @@
-import { rooms, uid, push, save } from "../../store";
+import { rooms, uid, push, saveRoom, loadRoom } from "../../store";
 export const dynamic = "force-dynamic";
 const J = (o, status = 200) => Response.json(o, { status });
 const blank = () => [0, 0, 0, 0, 0, 0];
@@ -23,7 +23,7 @@ export async function POST(req) {
       ).join("");
     } while (rooms.has(c));
     const id = uid();
-    rooms.set(c, {
+    const newRoom = {
       code: c,
       hostId: id,
       hostName: (name || "Host").slice(0, 14),
@@ -34,12 +34,23 @@ export async function POST(req) {
       history: [],
       players: {},
       subs: new Set(),
-    });
-    save();
+    };
+    rooms.set(c, newRoom);
+    await saveRoom(newRoom);
     return J({ code: c, pid: id });
   }
-  const r = rooms.get((code || "").toUpperCase());
-  if (!r) return J({ error: "Room not found" }, 404);
+
+  // Try to load room from memory first, then from Redis
+  let r = rooms.get((code || "").toUpperCase());
+  if (!r) {
+    const loaded = await loadRoom((code || "").toUpperCase());
+    if (loaded) {
+      r = loaded;
+    } else {
+      return J({ error: "Room not found" }, 404);
+    }
+  }
+
   const isHost = pid === r.hostId,
     p = r.players[pid];
 

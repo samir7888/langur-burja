@@ -35,3 +35,10 @@ next-env.d.ts
 
 # game persistence
 .lb-rooms.json
+
+# environment variables
+.env
+
+# IDE
+.vscode
+.idea
