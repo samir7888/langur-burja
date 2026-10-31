@@ -1,0 +1,23 @@
+# Robots.txt for Langur Burja Online
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://yoursite.com/sitemap.xml
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/

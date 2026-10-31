@@ -165,9 +165,78 @@ function Home({ onEnter, initialCode }) {
     <div className="home">
       <h1 style={{ fontSize: 44 }}>Langur Burja</h1>
       <p style={{ margin: 0, opacity: 0.85, fontWeight: 500 }}>
-        All players must be connected to the same WiFi network to
-        play together.
+        📶 All players must be connected to the same WiFi network to play
+        together.
       </p>
+
+      {/* SEO Content - Hidden from users, visible to search engines */}
+      <div
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+        aria-hidden="true"
+      >
+        <h2>Play Langur Burja Online - लङ्गुर बुर्जा अनलाइन खेल्नुहोस्</h2>
+        <p>
+          Langur Burja (लङ्गुर बुर्जा) is a traditional Nepali dice game popular
+          during Dashain and Tihar festivals. Also known as Crown and Anchor or
+          Jhanda Burja, this classic game is played with 6 dice featuring unique
+          symbols.
+        </p>
+
+        <h3>Game Symbols - खेलका चिन्ह</h3>
+        <ul>
+          <li>झण्डा (Jhanda) - Flag symbol</li>
+          <li>बुर्जा (Burja) - Crown symbol</li>
+          <li>पान (Paan) - Heart symbol</li>
+          <li>हुकुम (Hukum) - Spade symbol</li>
+          <li>इँटा (Itta) - Diamond symbol</li>
+          <li>चिडी (Chidi) - Club symbol</li>
+        </ul>
+
+        <h3>How to Play Langur Burja</h3>
+        <p>
+          Players bet on one or more symbols. Six dice are rolled. If your
+          chosen symbol appears on 2 or more dice, you win! The payout depends
+          on how many dice show your symbol. Popular in Nepal, India,
+          Bangladesh, and throughout South Asia.
+        </p>
+
+        <h3>Features of Online Langur Burja</h3>
+        <ul>
+          <li>Free to play - no registration required</li>
+          <li>Multiplayer online game - play with friends</li>
+          <li>Real-time dice rolling animation</li>
+          <li>Traditional Nepali game experience</li>
+          <li>Perfect for Dashain, Tihar, and family gatherings</li>
+          <li>Mobile-friendly browser game</li>
+          <li>Create private rooms with room codes</li>
+          <li>Play anywhere on WiFi network</li>
+        </ul>
+
+        <h3>Popular Keywords</h3>
+        <p>
+          langur burja game, langur burja online, nepali game online, dashain
+          game, tihar game, crown and anchor nepal, jhanda burja online, लङ्गुर
+          बुर्जा खेल, nepali dice game free, traditional nepali game, langur
+          burja rules, how to play langur burja, langur burja multiplayer,
+          online nepali card game, south asian dice game, indian langur game,
+          bangladesh langur burja, langur burja khelne tarika
+        </p>
+
+        <h3>Regional Variations</h3>
+        <p>
+          This game is known by different names: Langur Burja in Nepal, Crown
+          and Anchor in English-speaking regions, Jhanda Burja in some areas.
+          The game maintains its cultural significance across Nepal, India,
+          Bangladesh, and other South Asian countries.
+        </p>
+      </div>
+
       <div className="card" style={{ display: "grid", gap: 12 }}>
         <input
           aria-label="Your name"
