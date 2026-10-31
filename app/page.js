@@ -164,10 +164,6 @@ function Home({ onEnter, initialCode }) {
   return (
     <div className="home">
       <h1 style={{ fontSize: 44 }}>Langur Burja</h1>
-      <p style={{ margin: 0, opacity: 0.85, fontWeight: 500 }}>
-        📶 All players must be connected to the same WiFi network to play
-        together.
-      </p>
 
       {/* SEO Content - Hidden from users, visible to search engines */}
       <div
@@ -215,7 +211,6 @@ function Home({ onEnter, initialCode }) {
           <li>Perfect for Dashain, Tihar, and family gatherings</li>
           <li>Mobile-friendly browser game</li>
           <li>Create private rooms with room codes</li>
-          <li>Play anywhere on WiFi network</li>
         </ul>
 
         <h3>Popular Keywords</h3>

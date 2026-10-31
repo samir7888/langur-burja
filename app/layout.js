@@ -1,6 +1,30 @@
 import "./globals.css";
 
+export const viewport = {
+  themeColor: "#c92a2a",
+};
+
 export const metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#c92a2a" }],
+  },
+  manifest: "/manifest.json",
+  other: {
+    "msapplication-TileColor": "#0e3b38",
+    "msapplication-TileImage": "/mstile-150x150.png",
+    "msapplication-config": "/browserconfig.xml",
+  },
   title:
     "Langur Burja Online - लङ्गुर बुर्जा खेल्नुहोस् | Play Free Nepali Dice Game",
   description:
@@ -72,10 +96,6 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Nunito:wght@500;700;800&display=swap"
         />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#c92a2a" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
