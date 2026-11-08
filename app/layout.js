@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Play Langur Burja (लङ्गुर बुर्जा) online for free. Traditional Nepali dice game with friends. झण्डा, बुर्जा, पान, हुकुम, इँटा, चिडी. Popular in Nepal, India, Bangladesh. Play now!",
   keywords:
-    "langur burja, लङ्गुर बुर्जा, nepali game, nepali dice game, jhanda burja, crown and anchor, langur game online, langur burja online, traditional nepali game, dashain game, tihar game, nepal card game, indian dice game, langur burja khelne, online nepali game, free nepali game, multiplayer nepali game, लङ्गुर बुर्जा अनलाइन, झण्डा बुर्जा",
+    "langur burja, लङ्गुर बुर्जा,jhandi munda,langur burja online with friends, nepali game, nepali dice game,nepali game online game, jhanda burja, crown and anchor, langur game online, langur burja online, traditional nepali game, dashain game, tihar game, nepal card game, indian dice game, langur burja khelne, online nepali game, free nepali game, multiplayer nepali game, लङ्गुर बुर्जा अनलाइन, झण्डा बुर्जा",
   authors: [{ name: "Langur Burja Game" }],
   creator: "Langur Burja",
   publisher: "Langur Burja",
